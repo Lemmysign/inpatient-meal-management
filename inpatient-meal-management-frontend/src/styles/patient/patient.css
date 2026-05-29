@@ -1,0 +1,397 @@
+/* ============================================================
+   PatientLogin.css — Evercare Patient Portal
+   Simplified, clean design
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+/* ── Root Element & Body ── */
+body {
+  background: #F8FAFC;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  background: #F8FAFC;
+  min-height: 100vh;
+}
+
+/* ── CSS Variables ── */
+:root {
+  --ec-blue:        #2D89FF;
+  --ec-blue-light:  #E8F2FF;
+  --ec-blue-dark:   #1E78D8;
+  --ec-blue-glow:   rgba(45, 137, 255, 0.15);
+  --ec-bg:          #F8FAFC;
+  --ec-white:       #FFFFFF;
+  --ec-text-dark:   #1E293B;
+  --ec-text-mid:    #475569;
+  --ec-text-light:  #64748B;
+  --ec-border:      #E2E8F0;
+  --ec-error:       #EF4444;
+  --ec-error-bg:    #FEE2E2;
+  --ec-shadow:      0 4px 12px rgba(0, 0, 0, 0.05);
+  --ec-radius:      16px;
+  --ec-transition:  0.3s ease;
+}
+
+/* ── Reset & Base ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Main Container ── */
+.patient-login-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  padding: 8px 4px;
+  padding-top: 40px;
+}
+
+/* ── Card Wrapper ── */
+.patient-login-wrapper {
+  width: 100%;
+  max-width: 100%;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ── Card ── */
+.patient-login-card {
+  background: var(--ec-white);
+  border-radius: var(--ec-radius);
+  padding: 32px 16px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Logo ── */
+.patient-logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+
+.patient-logo {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ── Header ── */
+.patient-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.patient-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--ec-text-dark);
+  margin-bottom: 8px;
+}
+
+.patient-subtitle {
+  font-size: 15px;
+  font-weight: 400;
+  color: var(--ec-text-light);
+  line-height: 1.5;
+}
+
+/* ── Divider (REMOVED) ── */
+.patient-divider {
+  display: none;
+}
+
+/* ── Form ── */
+.patient-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Form Field ── */
+.patient-form-field {
+  position: relative;
+}
+
+/* ── Form Label ── */
+.patient-form-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ec-text-light);
+  margin-bottom: 8px;
+  margin-left: 4px;
+  text-align: left;
+}
+
+.patient-form-label-icon {
+  display: flex;
+  align-items: center;
+  color: var(--ec-blue);
+  opacity: 0.7;
+}
+
+.patient-form-field-focused .patient-form-label {
+  color: var(--ec-blue);
+}
+
+.patient-form-field-focused .patient-form-label-icon {
+  opacity: 1;
+}
+
+.patient-form-field-error .patient-form-label {
+  color: var(--ec-error);
+}
+
+/* ── Form Input ── */
+.patient-form-input {
+  width: 100%;
+  padding: 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--ec-text-dark);
+  background: var(--ec-white);
+  border: 1.5px solid var(--ec-border);
+  border-radius: var(--ec-radius);
+  outline: none;
+  transition: all var(--ec-transition);
+}
+
+.patient-form-input::placeholder {
+  color: #94A3B8;
+}
+
+/* focused state */
+.patient-form-field-focused .patient-form-input {
+  border-color: var(--ec-blue);
+  box-shadow: 0 0 0 4px var(--ec-blue-light);
+}
+
+/* filled state */
+.patient-form-field-filled .patient-form-input {
+  background: var(--ec-white);
+  border-color: var(--ec-border);
+}
+
+/* error state */
+.patient-form-field-error .patient-form-input {
+  border-color: var(--ec-error);
+  background: var(--ec-error-bg);
+}
+
+/* ── Field Border (not needed) ── */
+.patient-form-field-border {
+  display: none;
+}
+
+/* ── Error Message ── */
+.patient-form-error {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ec-error);
+}
+
+/* ── Submit Button ── */
+.patient-submit-button {
+  width: 100%;
+  background: var(--ec-blue);
+  color: white;
+  border: none;
+  padding: 18px 16px; /* Added horizontal padding */
+  border-radius: var(--ec-radius);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: transform 0.2s ease;
+  display: flex; /* Add flex */
+  align-items: center; /* Vertically center */
+  justify-content: center; /* Horizontally center */
+  gap: 10px; /* Space between text and arrow icon */
+}
+
+.patient-submit-button:hover:not(:disabled) {
+  background: var(--ec-blue-dark);
+}
+
+.patient-submit-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.patient-submit-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Spinner */
+.patient-submit-spinner {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 2.5px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Form Footer ── */
+.patient-form-footer {
+  display: none;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (min-width: 600px) {
+  .patient-login-container {
+    padding: 40px 16px;
+    padding-top: 60px;
+    align-items: flex-start;
+  }
+
+  .patient-login-wrapper {
+    max-width: 500px;
+  }
+
+  .patient-login-card {
+    padding: 48px 40px;
+  }
+}
+
+@media (max-width: 599px) {
+  .patient-login-container {
+    padding: 8px 4px;
+    padding-top: 30px;
+  }
+
+  .patient-login-card {
+    padding: 28px 14px;
+    border-radius: 12px;
+  }
+
+  .patient-title {
+    font-size: 22px;
+  }
+
+  .patient-subtitle {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 380px) {
+  .patient-login-container {
+    padding: 4px 2px;
+    padding-top: 20px;
+  }
+
+  .patient-login-card {
+    padding: 24px 12px;
+    border-radius: 8px;
+  }
+
+  .patient-form-input {
+    font-size: 16px;
+    padding: 14px;
+  }
+}
+
+/* ── Success Popup ── */
+.patient-success-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.patient-success-content {
+  background: var(--ec-white);
+  padding: 32px 48px;
+  border-radius: var(--ec-radius);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: slideUp 0.3s ease;
+}
+
+.patient-success-icon {
+  width: 60px;
+  height: 60px;
+  background: #10B981;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin: 0 auto 16px;
+}
+
+.patient-success-message {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--ec-text-dark);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.patient-general-error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff0f0;
+  border: 1px solid #ffcccc;
+  color: #cc0000;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 16px;
+}

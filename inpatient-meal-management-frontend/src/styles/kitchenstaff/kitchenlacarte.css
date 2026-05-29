@@ -1,0 +1,423 @@
+/* kitchenlacarte.css - Kitchen À la carte Queue Page */
+
+/* Import base kitchen dashboard styles */
+@import url('./kitchendashboard.css');
+
+/* ============================================================
+   BREAKFAST QUEUE PAGE STYLES
+   ============================================================ */
+
+/* Page Header */
+.ks-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+/* Filters Section */
+.filters-section {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 250px;
+  padding: 10px 14px;
+  background: var(--ks-white);
+  border: 1.5px solid var(--ks-border);
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.search-bar:focus-within {
+  border-color: var(--ks-purple);
+  box-shadow: 0 0 0 3px var(--ks-purple-lt);
+}
+
+.search-bar svg {
+  color: var(--ks-sub);
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  color: var(--ks-text);
+  background: transparent;
+}
+
+.search-input::placeholder {
+  color: var(--ks-sub);
+}
+
+.status-filters {
+  display: flex;
+  gap: 8px;
+  background: var(--ks-white);
+  padding: 4px;
+  border-radius: 8px;
+  border: 1.5px solid var(--ks-border);
+}
+
+.status-filter-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ks-sub);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.status-filter-btn:hover {
+  background: var(--ks-purple-lt);
+  color: var(--ks-purple);
+}
+
+.status-filter-btn.active {
+  background: var(--ks-purple);
+  color: white;
+}
+
+/* Queue Table */
+.queue-table-wrap {
+  overflow-x: auto;
+  width: 100%;
+}
+
+.queue-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.queue-table th {
+  text-align: left;
+  padding: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ks-sub);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: #f9fafb;
+  border-bottom: 2px solid var(--ks-border);
+}
+
+.queue-table td {
+  padding: 14px 12px;
+  color: var(--ks-text);
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: middle;
+}
+
+.queue-table tbody tr:hover {
+  background: #f9fafb;
+}
+
+.queue-position {
+  font-weight: 700;
+  color: var(--ks-purple);
+  font-size: 1rem;
+  width: 50px;
+}
+
+.uhid-cell {
+  font-family: monospace;
+  font-weight: 600;
+  color: #374151;
+}
+
+.patient-name {
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.room-cell {
+  font-weight: 600;
+  color: var(--ks-purple);
+}
+
+.food-item-cell {
+  color: var(--ks-text);
+}
+
+.time-cell {
+  font-size: 0.8rem;
+  color: var(--ks-sub);
+  white-space: nowrap;
+}
+
+/* Actions Cell — labeled buttons */
+.actions-cell {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.action-label-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  border: none;
+  color: white;
+}
+
+.action-label-btn.notes-btn {
+  background: #1d6fa5;
+}
+
+.action-label-btn.notes-btn:hover {
+  background: #145a87;
+}
+
+.action-label-btn.process-btn {
+  background: #dc2626;
+  padding: 6px 24px;
+}
+
+.action-label-btn.process-btn:hover {
+  background: #b91c1c;
+}
+
+.action-label-btn.print-btn {
+  background: transparent;
+  color: #1a1a1a;
+  border: 1.5px solid #1a1a1a;
+}
+
+.action-label-btn.print-btn:hover {
+  background: #1a1a1a;
+  color: white;
+}
+
+/* Status Badges */
+.status-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-pending {
+  background: var(--ks-amber-lt);
+  color: var(--ks-amber);
+}
+
+.status-processed {
+  background: var(--ks-green-lt);
+  color: var(--ks-green);
+}
+
+/* Mobile Queue Cards */
+.queue-cards {
+  display: none;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.queue-card {
+  padding: 16px;
+  border: 1px solid var(--ks-border);
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.queue-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.queue-number {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ks-purple);
+}
+
+.queue-card-patient h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--ks-text);
+  margin: 0 0 4px;
+  text-transform: capitalize;
+}
+
+.queue-card-patient p {
+  font-size: 0.8rem;
+  color: var(--ks-sub);
+  margin: 0;
+}
+
+.queue-card-food {
+  margin: 10px 0;
+  padding: 10px;
+  background: white;
+  border-radius: 6px;
+  font-size: 0.9rem;
+}
+
+.queue-card-time {
+  font-size: 0.75rem;
+  color: var(--ks-sub);
+  margin-bottom: 12px;
+}
+
+.queue-card-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: white;
+}
+
+.view-btn {
+  background: #1d6fa5;
+}
+
+.view-btn:hover {
+  background: #145a87;
+}
+
+.process-full-btn {
+  background: #dc2626;
+  flex: 1.5;
+}
+
+.process-full-btn:hover {
+  background: #b91c1c;
+}
+
+.print-full-btn {
+  background: transparent;
+  color: #1a1a1a;
+  border: 1.5px solid #1a1a1a;
+}
+
+.print-full-btn:hover {
+  background: #1a1a1a;
+  color: white;
+}
+
+/* Empty State */
+.ks-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+  color: var(--ks-sub);
+  gap: 10px;
+}
+
+.ks-empty-state svg {
+  color: #d1d5db;
+}
+
+.ks-empty-state p {
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+/* Loading Skeleton */
+.ks-table-loading {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.ks-skeleton-row {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.ks-skeleton-cell {
+  flex: 1;
+  height: 16px;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: ksShimmer 1.4s infinite;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .ks-page-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .filters-section {
+    flex-direction: column;
+  }
+
+  .search-bar {
+    min-width: auto;
+    width: 100%;
+  }
+
+  .status-filters {
+    justify-content: space-between;
+  }
+
+  .status-filter-btn {
+    flex: 1;
+    padding: 8px 8px;
+    font-size: 0.75rem;
+  }
+
+  .queue-table-wrap {
+    display: none;
+  }
+
+  .queue-cards {
+    display: flex;
+  }
+}
+
+/* Disabled state for action buttons while API call is in-flight */
+.action-label-btn:disabled,
+.action-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}

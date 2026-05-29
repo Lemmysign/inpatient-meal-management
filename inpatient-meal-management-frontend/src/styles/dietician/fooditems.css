@@ -1,0 +1,547 @@
+/* Import base dietician dashboard styles */
+@import url('./dieticiandashboard.css');
+
+/* ============================================================
+   FILTERS SECTION
+   ============================================================ */
+
+.filters-section {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 250px;
+  padding: 10px 14px;
+  background: var(--dc-white);
+  border: 1.5px solid var(--dc-border);
+  border-radius: 8px;
+  transition: border-color 0.2s;
+}
+
+.search-bar:focus-within {
+  border-color: var(--dc-teal);
+  box-shadow: 0 0 0 3px var(--dc-teal-lt);
+}
+
+.search-bar svg { color: var(--dc-sub); flex-shrink: 0; }
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  color: var(--dc-text);
+  background: transparent;
+}
+
+.search-input::placeholder { color: var(--dc-sub); }
+
+.filter-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--dc-white);
+  border: 1.5px solid var(--dc-border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--dc-text);
+  cursor: pointer;
+  transition: all 0.2s;
+  position: relative;
+}
+
+.filter-toggle-btn:hover {
+  border-color: var(--dc-teal);
+  background: var(--dc-teal-lt);
+  color: var(--dc-teal);
+}
+
+.filter-badge {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 8px;
+  height: 8px;
+  background: var(--dc-teal);
+  border-radius: 50%;
+}
+
+.clear-filters-btn {
+  padding: 10px 18px;
+  background: var(--dc-white);
+  border: 1.5px solid #fecaca;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #dc2626;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.clear-filters-btn:hover {
+  background: #fee2e2;
+  border-color: #dc2626;
+}
+
+.filters-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 16px;
+  padding: 20px;
+  background: var(--dc-white);
+  border: 1px solid var(--dc-border);
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.filter-group { display: flex; flex-direction: column; gap: 8px; }
+
+.filter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dc-text);
+}
+
+.filter-select {
+  padding: 10px 12px;
+  border: 1.5px solid var(--dc-border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: var(--dc-text);
+  background: var(--dc-white);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: var(--dc-teal);
+  box-shadow: 0 0 0 3px var(--dc-teal-lt);
+}
+
+/* ============================================================
+   MEAL TYPE BADGES
+   ============================================================ */
+
+.meal-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.meal-badge-breakfast { background: #fef3c7; color: #d97706; }
+.meal-badge-lunch     { background: #dbeafe; color: #1d4ed8; }
+.meal-badge-dinner    { background: #ede9fe; color: #6b21a8; }
+.meal-badge-none      { background: #f3f4f6; color: var(--dc-sub); }
+
+/* ============================================================
+   TABLE CELLS
+   ============================================================ */
+
+.cell-name       { font-weight: 600; color: var(--dc-text); }
+.cell-description { color: var(--dc-sub); max-width: 300px; line-height: 1.5; }
+.cell-menu-group { color: var(--dc-teal); font-weight: 500; font-size: 0.875rem; }
+.cell-date       { color: var(--dc-sub); font-size: 0.85rem; white-space: nowrap; }
+.cell-none       { color: var(--dc-sub); font-style: italic; }
+
+.cell-actions {
+  text-align: right;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.cell-actions .action-btn {
+  margin-left: 0;
+}
+
+
+/* ============================================================
+   ACTION BUTTONS — solid filled, no white background
+   ============================================================ */
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s;
+  margin-left: 6px;
+}
+
+.action-btn:first-child { margin-left: 0; }
+
+.edit-btn {
+  background: var(--dc-teal);
+  color: #ffffff;
+}
+
+.edit-btn:hover {
+  background: var(--dc-teal-mid);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.delete-btn {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.3);
+}
+
+/* ============================================================
+   MOBILE CARDS
+   ============================================================ */
+
+.food-item-cards { display: none; flex-direction: column; gap: 12px; }
+
+.food-item-card {
+  padding: 16px;
+  border: 1px solid var(--dc-border);
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.food-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.food-card-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--dc-text);
+  margin: 0;
+  line-height: 1.3;
+  flex: 1;
+}
+
+.food-card-description {
+  font-size: 0.85rem;
+  color: var(--dc-sub);
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+.food-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.75rem;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--dc-border);
+}
+
+.food-card-group { color: var(--dc-teal); font-weight: 600; }
+.food-card-date  { color: var(--dc-sub); font-style: italic; }
+
+.food-card-actions { display: flex; gap: 8px; }
+
+.food-card-actions .action-btn {
+  flex: 1;
+  justify-content: center;
+  margin-left: 0;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  border: none;
+}
+
+/* ============================================================
+   TOAST NOTIFICATIONS
+   ============================================================ */
+
+.toast-container {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 400px;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  animation: slideIn 0.3s ease-out;
+  font-size: 0.9rem;
+  font-weight: 500;
+  min-width: 300px;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(400px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+.toast-success { background: #10b981; color: white; }
+.toast-error   { background: #ef4444; color: white; }
+.toast svg  { flex-shrink: 0; }
+.toast span { flex: 1; }
+
+.toast-close {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.toast-close:hover { opacity: 1; }
+
+/* ============================================================
+   DELETE MODAL
+   ============================================================ */
+
+.delete-icon {
+  background: linear-gradient(135deg, #fee2e2, #fca5a5);
+  color: #dc2626;
+}
+
+.delete-confirm {
+  background: linear-gradient(135deg, #dc2626, #b91c1c) !important;
+}
+
+.delete-confirm:hover:not(:disabled) {
+  background: linear-gradient(135deg, #b91c1c, #991b1b) !important;
+}
+
+/* ============================================================
+   CREATE BUTTON
+   ============================================================ */
+
+.dc-welcome-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.create-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  background: var(--dc-teal);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.25);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.create-btn:hover {
+  background: var(--dc-teal-mid);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+.create-btn:active { transform: translateY(0); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .dc-table-wrap { display: none !important; }
+  .food-item-cards { display: flex; }
+
+  .filters-section { flex-direction: column; align-items: stretch; }
+  .search-bar { min-width: auto; width: 100%; }
+  .filter-toggle-btn, .clear-filters-btn { width: 100%; justify-content: center; }
+  .filters-panel { grid-template-columns: 1fr; }
+
+  .dc-welcome-content { flex-direction: column; align-items: stretch; }
+  .create-btn { width: 100%; justify-content: center; }
+
+  .toast-container { top: 70px; right: 10px; left: 10px; max-width: none; }
+  .toast { min-width: auto; width: 100%; }
+}
+
+@media (max-width: 480px) {
+  .food-card-actions .action-btn { padding: 12px 12px; font-size: 0.9rem; }
+  .create-btn { padding: 12px 16px; font-size: 0.85rem; }
+}
+
+/* ============================================================
+   FOOD ITEM MODAL FORMS
+   ============================================================ */
+
+.food-modal { max-width: 500px; }
+
+.edit-form {
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+
+.form-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--dc-text);
+  text-align: left;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--dc-border);
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  color: var(--dc-text);
+  background: var(--dc-white);
+  transition: all 0.18s;
+  text-align: left;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+  outline: none;
+  border-color: var(--dc-teal);
+  box-shadow: 0 0 0 3px var(--dc-teal-lt);
+}
+
+.form-input:disabled,
+.form-textarea:disabled,
+.form-select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: #f9fafb;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 80px;
+  line-height: 1.5;
+}
+
+.form-select { cursor: pointer; }
+.form-select option { padding: 8px; }
+
+/* ============================================================
+   PAGINATION
+   ============================================================ */
+
+.dc-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 0 0.5rem;
+  margin-top: 1rem;
+  border-top: 1px solid var(--dc-border);
+}
+
+.dc-pagination-info { font-size: 0.85rem; color: var(--dc-sub); }
+.dc-pagination-controls { display: flex; align-items: center; gap: 8px; }
+
+.dc-pagination-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border: 1px solid var(--dc-border);
+  border-radius: 6px;
+  background: var(--dc-white);
+  color: var(--dc-text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.dc-pagination-btn:hover:not(:disabled) {
+  background: var(--dc-teal-lt);
+  border-color: var(--dc-teal);
+  color: var(--dc-teal);
+}
+
+.dc-pagination-btn:disabled { opacity: 0.4; cursor: not-allowed; }
+.dc-pagination-pages { display: flex; gap: 4px; }
+
+.dc-pagination-page {
+  min-width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--dc-border);
+  border-radius: 6px;
+  background: var(--dc-white);
+  color: var(--dc-text);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s;
+}
+
+.dc-pagination-page:hover {
+  background: var(--dc-teal-lt);
+  border-color: var(--dc-teal);
+  color: var(--dc-teal);
+}
+
+.dc-pagination-page.active {
+  background: var(--dc-teal);
+  border-color: var(--dc-teal);
+  color: var(--dc-white);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .dc-pagination { flex-direction: column; gap: 12px; align-items: flex-start; }
+  .dc-pagination-controls { width: 100%; flex-wrap: wrap; }
+  .dc-pagination-btn { padding: 6px 12px; font-size: 0.8rem; }
+  .dc-pagination-page { min-width: 30px; height: 30px; font-size: 0.8rem; }
+}
+
+@media (max-width: 480px) {
+  .dc-pagination-pages { display: none; }
+  .dc-pagination-controls { justify-content: space-between; }
+}

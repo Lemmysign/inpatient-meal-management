@@ -1,0 +1,554 @@
+/* admindieticians.css — dietician-page-specific styles only.
+   admindashboard.css is imported in AdminDieticians.tsx for shared layout/variables. */
+
+
+/* ── Overflow containment (prevents horizontal scroll on desktop) ── */
+.ad-main {
+  overflow-x: hidden;
+  min-width: 0;
+}
+
+.ad-content {
+  max-width: 100%;
+  overflow-x: hidden;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.ad-toolbar {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.ad-card {
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.ad-table-wrap {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* ── Page Header ──────────────────────────────── */
+.ad-page-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.ad-count-badge {
+  display: inline-block;
+  margin-left: 10px;
+  background: var(--ad-blue-lt);
+  color: var(--ad-blue);
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  vertical-align: middle;
+}
+
+.ad-create-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 20px;
+  background: var(--ad-blue);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s;
+  box-shadow: 0 2px 8px rgba(59,130,246,0.3);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.ad-create-btn:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(59,130,246,0.4);
+}
+
+/* ── Toolbar (search + filters) ───────────────── */
+.ad-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.ad-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  background: var(--ad-white);
+  border: 1.5px solid var(--ad-border);
+  border-radius: 9px;
+  transition: all 0.18s;
+  position: relative;
+}
+
+.ad-search-bar:focus-within {
+  border-color: var(--ad-blue);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+}
+
+.ad-search-icon { color: var(--ad-sub); flex-shrink: 0; }
+
+.ad-search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 0.9rem;
+  color: var(--ad-text);
+  background: transparent;
+  min-width: 0;
+}
+
+.ad-search-input::placeholder { color: var(--ad-sub); }
+
+.ad-search-clear {
+  background: none;
+  border: none;
+  color: var(--ad-sub);
+  cursor: pointer;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  transition: color 0.15s;
+  flex-shrink: 0;
+}
+
+.ad-search-clear:hover { color: var(--ad-text); }
+
+/* Status filter pills */
+.ad-status-filters {
+  display: flex;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.ad-filter-pill-btn {
+  padding: 8px 16px;
+  border: 1.5px solid var(--ad-border);
+  border-radius: 8px;
+  background: var(--ad-white);
+  color: var(--ad-sub);
+  font-size: 0.825rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+
+.ad-filter-pill-btn:hover { border-color: var(--ad-blue); color: var(--ad-blue); }
+
+.ad-filter-pill-btn.active {
+  background: var(--ad-blue);
+  border-color: var(--ad-blue);
+  color: white;
+}
+
+/* ── Table ────────────────────────────────────── */
+.ad-table-wrap { overflow-x: auto; }
+
+.ad-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.ad-table thead tr {
+  background: #f8fafc;
+  border-bottom: 2px solid var(--ad-border);
+}
+
+.ad-table th {
+  padding: 12px 16px;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ad-sub);
+}
+
+.ad-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--ad-border);
+  color: var(--ad-text);
+  vertical-align: middle;
+}
+
+.ad-table tbody tr:last-child td { border-bottom: none; }
+
+.ad-table tbody tr:hover td { background: #f8fafc; }
+
+/* Name cell */
+.ad-name-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ad-avatar {
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.ad-avatar-lg { width: 40px; height: 40px; font-size: 0.8rem; }
+
+.ad-name {
+  font-weight: 600;
+  color: var(--ad-text);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.ad-no-pwd {
+  font-size: 0.7rem;
+  color: var(--ad-amber);
+  background: var(--ad-amber-lt);
+  border-radius: 4px;
+  padding: 1px 6px;
+  display: inline-block;
+  margin-top: 2px;
+}
+
+.ad-staff-id {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ad-blue);
+  background: var(--ad-blue-lt);
+  border-radius: 5px;
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
+.ad-email  { color: var(--ad-sub); font-size: 0.85rem; }
+.ad-phone  { color: var(--ad-sub); font-size: 0.85rem; }
+.ad-date   { color: var(--ad-sub); font-size: 0.82rem; }
+
+/* Status badge */
+.ad-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.ad-status-badge.active {
+  background: var(--ad-green-lt);
+  color: var(--ad-green);
+}
+
+.ad-status-badge.inactive {
+  background: #fef2f2;
+  color: var(--ad-red);
+}
+
+/* Toggle button */
+.ad-toggle-btn {
+  padding: 6px 14px;
+  border-radius: 7px;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s;
+  white-space: nowrap;
+}
+
+.ad-toggle-btn.deactivate {
+  background: #fef2f2;
+  color: var(--ad-red);
+  border: 1px solid #fecaca;
+}
+
+.ad-toggle-btn.deactivate:hover:not(:disabled) {
+  background: var(--ad-red);
+  color: white;
+}
+
+.ad-toggle-btn.activate {
+  background: var(--ad-green-lt);
+  color: var(--ad-green);
+  border: 1px solid #6ee7b7;
+}
+
+.ad-toggle-btn.activate:hover:not(:disabled) {
+  background: var(--ad-green);
+  color: white;
+}
+
+.ad-toggle-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ad-toggle-btn.full-width { width: 100%; justify-content: center; padding: 10px; }
+
+/* ── Skeleton ─────────────────────────────────── */
+.ad-table-skeleton { display: flex; flex-direction: column; gap: 8px; padding: 8px 0; }
+
+.ad-skeleton-row {
+  height: 52px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: adShimmer 1.4s infinite;
+}
+
+/* ── Empty State ──────────────────────────────── */
+.ad-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: var(--ad-sub);
+  gap: 12px;
+}
+
+.ad-empty-state p { font-size: 0.9rem; margin: 0; }
+
+/* ── Mobile Cards ─────────────────────────────── */
+.ad-mobile-cards { display: none; flex-direction: column; gap: 12px; }
+
+.ad-dietician-card {
+  border: 1px solid var(--ad-border);
+  border-radius: 10px;
+  padding: 16px;
+  background: #fafafa;
+}
+
+.ad-dc-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.ad-dc-identity { display: flex; align-items: center; gap: 10px; }
+
+.ad-dc-details {
+  font-size: 0.825rem;
+  color: var(--ad-sub);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 14px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--ad-border);
+}
+
+.ad-dc-details p { margin: 0; }
+
+/* ── Toast ────────────────────────────────────── */
+.ad-toast-container {
+  position: fixed;
+  top: 80px; right: 20px;
+  z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 380px;
+}
+
+.ad-toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 16px;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.13);
+  font-size: 0.875rem;
+  font-weight: 500;
+  min-width: 280px;
+  animation: adSlideIn 0.3s ease-out;
+}
+
+@keyframes adSlideIn {
+  from { transform: translateX(380px); opacity: 0; }
+  to   { transform: translateX(0);     opacity: 1; }
+}
+
+.ad-toast-success { background: var(--ad-green); color: white; }
+.ad-toast-error   { background: var(--ad-red);   color: white; }
+.ad-toast svg  { flex-shrink: 0; }
+.ad-toast span { flex: 1; }
+.ad-toast button {
+  background: none; border: none; color: white;
+  font-size: 1.3rem; cursor: pointer; padding: 0; opacity: 0.8;
+  line-height: 1;
+}
+.ad-toast button:hover { opacity: 1; }
+
+/* ── Responsive ───────────────────────────────── */
+@media (max-width: 768px) {
+  .ad-table-wrap    { display: none; }
+  .ad-mobile-cards  { display: flex; }
+  .ad-toolbar       { flex-direction: column; align-items: stretch; }
+  .ad-search-bar    { min-width: 0; width: 100%; }
+  .ad-status-filters { width: 100%; justify-content: space-between; }
+  .ad-filter-pill-btn { flex: 1; text-align: center; }
+  .ad-page-header   { flex-direction: column; align-items: stretch; }
+  .ad-create-btn    { width: 100%; justify-content: center; }
+  .ad-toast-container { right: 10px; left: 10px; max-width: none; }
+  .ad-toast { min-width: auto; }
+}
+
+/* ── Create Dietician Modal ───────────────────── */
+.ad-create-modal {
+  max-width: 500px;
+  text-align: left;
+}
+
+.ad-create-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.ad-create-modal-header .ad-modal-title {
+  margin: 0;
+  text-align: left;
+}
+
+.ad-modal-close {
+  background: none;
+  border: none;
+  color: var(--ad-sub);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s, background 0.15s;
+}
+
+.ad-modal-close:hover { color: var(--ad-text); background: #f1f5f9; }
+.ad-modal-close:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.ad-create-modal .ad-modal-msg {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+/* Form fields */
+.ad-create-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.ad-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.ad-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.ad-form-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ad-text);
+}
+
+.ad-form-label span { color: var(--ad-red); margin-left: 2px; }
+
+.ad-form-input {
+  padding: 10px 12px;
+  border: 1.5px solid var(--ad-border);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--ad-text);
+  outline: none;
+  transition: all 0.18s;
+  background: white;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.ad-form-input:focus {
+  border-color: var(--ad-blue);
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.1);
+}
+
+.ad-form-input.error {
+  border-color: var(--ad-red);
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.08);
+}
+
+.ad-form-input::placeholder { color: #94a3b8; }
+
+.ad-form-input:disabled {
+  background: #f8fafc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.ad-form-error {
+  font-size: 0.75rem;
+  color: var(--ad-red);
+  margin: 0;
+}
+
+/* Create confirm button variant */
+.ad-modal-confirm.ad-modal-create {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.ad-modal-confirm.ad-modal-create:hover:not(:disabled) {
+  opacity: 0.92;
+}
+
+/* Spinner on create button */
+.ad-btn-spinner {
+  animation: adSpin 0.9s linear infinite;
+}
+
+@keyframes adSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@media (max-width: 480px) {
+  .ad-form-row { grid-template-columns: 1fr; }
+  .ad-create-modal { margin: 0 8px; }
+}
