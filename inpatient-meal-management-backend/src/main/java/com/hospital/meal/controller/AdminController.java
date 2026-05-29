@@ -34,7 +34,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @Validated
 @Slf4j
-@Tag(name = "Admin", description = "Admin user management endpoints")
+@Tag(name = "Admin", description = "Admin user management endpoints dev")
 @SecurityRequirement(name = "bearerAuth")
 public class AdminController {
 
