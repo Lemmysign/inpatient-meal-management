@@ -1,10 +1,10 @@
-# 🏥 Inpatient Meal Management System
+# Inpatient Meal Management System
 
 A hospital-based patient meal coordination system built with **Java Spring Boot** and **React TypeScript**, designed to streamline how admitted patients request meals and how dieticians manage personalized dietary plans.
 
 ---
 
-## 📋 Table of Contents
+## Table of Contents
 
 - [Overview](#overview)
 - [Problem Statement](#problem-statement)
@@ -44,13 +44,13 @@ This application integrates with the hospital's HIS using a custom **scraper-bas
 
 ## Features
 
-- 🔐 **Patient login** using UHID
-- 🔄 **Automatic patient data retrieval** from HIS
-- 🥗 **Dietician-managed meal plans** based on patient diagnosis
-- 👥 **Role-based access control** for patients, dieticians, kitchen staff, and admins
-- 🔔 **Real-time popup notifications** for meal orders, approvals, and status changes
-- 📡 **HIS scraper integration** with offline fallback mode
-- 📦 **Fully containerized** with Docker and NGINX
+  **Patient login** using UHID
+  **Automatic patient data retrieval** from HIS
+  **Dietician-managed meal plans** based on patient diagnosis
+  **Role-based access control** for patients, dieticians, kitchen staff, and admins
+  **Real-time popup notifications** for meal orders, approvals, and status changes
+  **HIS scraper integration** with offline fallback mode
+  **Fully containerized** with Docker and NGINX
 
 ---
 
@@ -69,7 +69,7 @@ This application integrates with the hospital's HIS using a custom **scraper-bas
 
 ## System Architecture
 
-```
+
 HIS (Hospital Information System)
         │
         ▼
@@ -81,11 +81,11 @@ Spring Boot REST API  (Java 21 / Spring Boot 3.5)
         ▼
   React TypeScript Frontend
   (Served via NGINX)
-```
+
 
 **Data Flow:** Patient details are scraped from the HIS and fed into the backend, which exposes REST APIs consumed by the React frontend. NGINX handles routing and serves static frontend assets.
 
----
+
 
 ## User Roles
 
@@ -96,20 +96,20 @@ Spring Boot REST API  (Java 21 / Spring Boot 3.5)
 | **Kitchen Staff** | Views assigned meals and updates preparation status |
 | **Admin** | Manages system configuration, users, and monitoring |
 
----
+
 
 ## Deployment
 
 The application is deployed on a production-ready Linux infrastructure:
 
-- **Containerization:** Docker isolates backend and frontend services
-- **Reverse Proxy:** NGINX handles external traffic routing and serves static frontend assets
+**Containerization:** Docker isolates backend and frontend services
+**Reverse Proxy:** NGINX handles external traffic routing and serves static frontend assets
 
----
+
 
 ## HIS Integration
 
-> ⚠️ **Note:** The HIS integration currently uses a scraper-based approach due to the absence of a dedicated API from the Hospital Information System.
+**Note:** The HIS integration currently uses a scraper-based approach due to the absence of a dedicated API from the Hospital Information System.
 
 ### How it works
 
