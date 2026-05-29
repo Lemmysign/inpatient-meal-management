@@ -1,0 +1,163 @@
+{
+  "properties": [
+    {
+      "name": "jwt.expiration-ms",
+      "type": "java.lang.String",
+      "description": "Description for jwt.expiration-ms."
+    },
+    {
+      "name": "jwt.patient-session-expiration-ms",
+      "type": "java.lang.String",
+      "description": "Description for jwt.patient-session-expiration-ms."
+    },
+    {
+      "name": "jwt.secret",
+      "type": "java.lang.String",
+      "description": "Description for jwt.secret."
+    },
+    {
+      "name": "his.integration.enabled",
+      "type": "java.lang.String",
+      "description": "Description for his.integration.enabled."
+    },
+    {
+      "name": "his.api.base-url",
+      "type": "java.lang.String",
+      "description": "Description for his.api.base-url."
+    },
+    {
+      "name": "his.api.timeout-ms",
+      "type": "java.lang.String",
+      "description": "Description for his.api.timeout-ms."
+    },
+    {
+      "name": "app.email.from",
+      "type": "java.lang.String",
+      "description": "Description for app.email.from."
+    },
+    {
+      "name": "webpush.vapid.public-key",
+      "type": "java.lang.String",
+      "description": "Description for webpush.vapid.public-key."
+    },
+    {
+      "name": "webpush.vapid.private-key",
+      "type": "java.lang.String",
+      "description": "Description for webpush.vapid.private-key."
+    },
+    {
+      "name": "webpush.vapid.subject",
+      "type": "java.lang.String",
+      "description": "Description for webpush.vapid.subject."
+    },
+    {
+      "name": "cors.allowed-origins",
+      "type": "java.lang.String",
+      "description": "Description for cors.allowed-origins."
+    },
+    {
+      "name": "cors.allowed-methods",
+      "type": "java.lang.String",
+      "description": "Description for cors.allowed-methods."
+    },
+    {
+      "name": "cors.allowed-headers",
+      "type": "java.lang.String",
+      "description": "Description for cors.allowed-headers."
+    },
+    {
+      "name": "cors.allow-credentials",
+      "type": "java.lang.String",
+      "description": "Description for cors.allow-credentials."
+    },
+    {
+      "name": "ratelimit.patient-order.requests-per-minute",
+      "type": "java.lang.String",
+      "description": "Description for ratelimit.patient-order.requests-per-minute."
+    },
+    {
+      "name": "ratelimit.patient-login.requests-per-minute",
+      "type": "java.lang.String",
+      "description": "Description for ratelimit.patient-login.requests-per-minute."
+    },
+    {
+      "name": "session.cleanup.cron",
+      "type": "java.lang.String",
+      "description": "Description for session.cleanup.cron."
+    },
+    {
+      "name": "session.cleanup.expired-days",
+      "type": "java.lang.String",
+      "description": "Description for session.cleanup.expired-days."
+    },
+    {
+      "name": "print.label.width-mm",
+      "type": "java.lang.String",
+      "description": "Description for print.label.width-mm."
+    },
+    {
+      "name": "print.label.height-mm",
+      "type": "java.lang.String",
+      "description": "Description for print.label.height-mm."
+    },
+    {
+      "name": "ratelimit.enabled",
+      "type": "java.lang.String",
+      "description": "Description for ratelimit.enabled."
+    },
+    {
+      "name": "app.email.invite-expiration-days",
+      "type": "java.lang.String",
+      "description": "Description for app.email.invite-expiration-days."
+    },
+    {
+      "name": "app.email.from-name",
+      "type": "java.lang.String",
+      "description": "Description for app.email.from-name."
+    },
+    {
+      "name": "his.api.retry-attempts",
+      "type": "java.lang.String",
+      "description": "Description for his.api.retry-attempts."
+    },
+    {
+      "name": "jwt.patient-session-expiration-minutes",
+      "type": "java.lang.String",
+      "description": "Description for jwt.patient-session-expiration-minutes."
+    },
+    {
+      "name": "print.printer.type",
+      "type": "java.lang.String",
+      "description": "Description for print.printer.type."
+    },
+    {
+      "name": "print.label.tolerance-mm",
+      "type": "java.lang.String",
+      "description": "Description for print.label.tolerance-mm."
+    },
+    {
+      "name": "webpush.dietician.enabled",
+      "type": "java.lang.String",
+      "description": "Description for webpush.dietician.enabled."
+    },
+    {
+      "name": "webpush.kitchen.enabled",
+      "type": "java.lang.String",
+      "description": "Description for webpush.kitchen.enabled."
+    },
+    {
+      "name": "webpush.patient.enabled",
+      "type": "java.lang.String",
+      "description": "Description for webpush.patient.enabled."
+    },
+    {
+      "name": "app.frontend-url",
+      "type": "java.lang.String",
+      "description": "Description for app.frontend-url."
+    },
+    {
+      "name": "app.base-url",
+      "type": "java.lang.String",
+      "description": "Description for app.base-url."
+    }
+  ] }
