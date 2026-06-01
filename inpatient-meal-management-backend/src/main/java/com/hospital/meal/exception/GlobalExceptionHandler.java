@@ -5,6 +5,7 @@ import com.hospital.meal.dto.common.ErrorResponse;
 import jakarta.persistence.OptimisticLockException;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.crossstore.ChangeSetPersister;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.AccessDeniedException;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.NoHandlerFoundException;
 
+import javax.naming.ServiceUnavailableException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -270,7 +272,6 @@ public class GlobalExceptionHandler {
                 .status(HttpStatus.BAD_REQUEST.value())
                 .path(request.getRequestURI())
                 .timestamp(LocalDateTime.now())
-                .validationErrors(validationErrors)
                 .build();
 
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(error);
@@ -389,7 +390,6 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(error);
     }
 
-
     @ExceptionHandler(OrderingNotAllowedException.class)
     public ResponseEntity<ApiResponse<Void>> handleOrderingNotAllowed(OrderingNotAllowedException ex) {
         log.warn("Ordering not allowed: {}", ex.getMessage());
@@ -408,6 +408,46 @@ public class GlobalExceptionHandler {
                 .body(ApiResponse.error(ex.getMessage(), HttpStatus.BAD_REQUEST.value()));
     }
 
+    /**
+     * Handle NotFoundException (custom 404)
+     */
+    @ExceptionHandler(ChangeSetPersister.NotFoundException.class)
+    public ResponseEntity<ErrorResponse> handleNotFoundException(
+            ChangeSetPersister.NotFoundException ex,
+            HttpServletRequest request) {
 
+        log.error("Not found: {}", ex.getMessage());
+
+        ErrorResponse error = ErrorResponse.builder()
+                .message(ex.getMessage())
+                .error("Not Found")
+                .status(HttpStatus.NOT_FOUND.value())
+                .path(request.getRequestURI())
+                .timestamp(LocalDateTime.now())
+                .build();
+
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(error);
+    }
+
+    /**
+     * Handle ServiceUnavailableException (503)
+     */
+    @ExceptionHandler(ServiceUnavailableException.class)
+    public ResponseEntity<ErrorResponse> handleServiceUnavailableException(
+            ServiceUnavailableException ex,
+            HttpServletRequest request) {
+
+        log.error("Service unavailable: {}", ex.getMessage());
+
+        ErrorResponse error = ErrorResponse.builder()
+                .message(ex.getMessage())
+                .error("Service Unavailable")
+                .status(HttpStatus.SERVICE_UNAVAILABLE.value())
+                .path(request.getRequestURI())
+                .timestamp(LocalDateTime.now())
+                .build();
+
+        return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).body(error);
+    }
 
 }
